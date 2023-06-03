@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1C0340"
+    android:id="@+id/root"
+    tools:context=".auth.LoginActivity">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:background="@color/colorSecondary"
+        android:src="@drawable/couple"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/numberLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-96dp"
+        app:cardCornerRadius="14dp"
+        android:visibility="visible"
+        app:cardElevation="10dp"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintTop_toBottomOf="@id/imageView2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter Phone Number"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/userNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Number"
+                    android:maxLength="13"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:inputType="phone"
+                    android:drawableRight="@drawable/ic_phone"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+<!--            <Button-->
+<!--                android:id="@+id/SendOtpBtn"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:text="Send OTP"-->
+<!--                android:layout_marginTop="10dp"/>-->
+
+
+<!--            <de.mustafagercek.library.LoadingButton-->
+<!--                android:id="@+id/SendOtpBtn"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:buttonText="Do stuff"-->
+<!--                app:onButtonClick="@{(view)->presenter.doStuff(view)}" />-->
+
+
+
+
+            <com.github.leandroborgesferreira.loadingbutton.customViews.CircularProgressButton
+                android:id="@+id/SendOtpBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:spinning_bar_width="4dp"
+                android:text="Send OTP"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                app:spinning_bar_color="#FFF"
+                app:spinning_bar_padding="6dp" />
+
+
+<!--            <andreasagap.loadingbutton.ButtonLoading-->
+<!--                android:id="@+id/SendOtpBtn"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="48dp"-->
+<!--                app:BL_backgroundColor="#9c9b9999"-->
+<!--                app:BL_backgroundDisableColor="#00AFEF"-->
+<!--                app:BL_circleColor="#00AFEF"-->
+<!--                app:BL_circleColorSecond="#8000AFEF"-->
+<!--                app:BL_enable="true"-->
+<!--                app:BL_stateShow="normal"-->
+<!--                app:BL_text="Login"-->
+<!--                app:BL_textColor="#ffffff"-->
+<!--                app:BL_textDisableColor="#000000"-->
+<!--                app:BL_textSize="16sp"/>-->
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+ <com.google.android.material.card.MaterialCardView
+        android:id="@+id/otpLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-96dp"
+        app:cardCornerRadius="14dp"
+        android:visibility="gone"
+        app:cardElevation="10dp"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintTop_toBottomOf="@id/imageView2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter OTP"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/userOTP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="OTP"
+                    android:maxLength="13"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:inputType="number"
+                    android:drawableRight="@drawable/ic_otp"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+<!--            <Button-->
+<!--                android:id="@+id/BtnVerifyOtp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:text="Verify OTP"-->
+<!--                android:layout_marginTop="10dp"/>-->
+
+            <com.github.leandroborgesferreira.loadingbutton.customViews.CircularProgressButton
+                android:id="@+id/BtnVerifyOtp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:spinning_bar_width="4dp"
+                android:text="Verify OTP"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                app:spinning_bar_color="#FFF"
+                app:spinning_bar_padding="6dp" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

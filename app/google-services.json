@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "178031628466",
+    "project_id": "dating-app-99fdc",
+    "storage_bucket": "dating-app-99fdc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:178031628466:android:08f1fd805a93ab97d239ab",
+        "android_client_info": {
+          "package_name": "com.dev.android.meetme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "178031628466-giufjhd7agnru4sms452clc19n7rmnnv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOaU4sVnfu_JMAtdwYU8OF_Q8r1hHrjMY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "178031628466-giufjhd7agnru4sms452clc19n7rmnnv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
