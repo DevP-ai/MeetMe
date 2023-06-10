@@ -55,21 +55,6 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-<!--            <Button-->
-<!--                android:id="@+id/SendOtpBtn"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="60dp"-->
-<!--                android:text="Send OTP"-->
-<!--                android:layout_marginTop="10dp"/>-->
-
-
-<!--            <de.mustafagercek.library.LoadingButton-->
-<!--                android:id="@+id/SendOtpBtn"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:buttonText="Do stuff"-->
-<!--                app:onButtonClick="@{(view)->presenter.doStuff(view)}" />-->
-
 
 
 
@@ -81,6 +66,8 @@
                 android:text="@string/send_otp"
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center"
+                android:backgroundTint="@color/colorPrimary"
+                android:textColor="@color/white"
                 app:spinning_bar_color="#FFF"
                 app:spinning_bar_padding="6dp" />
 
@@ -128,12 +115,7 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-<!--            <Button-->
-<!--                android:id="@+id/BtnVerifyOtp"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="40dp"-->
-<!--                android:text="Verify OTP"-->
-<!--                android:layout_marginTop="10dp"/>-->
+
 
             <com.github.leandroborgesferreira.loadingbutton.customViews.CircularProgressButton
                 android:id="@+id/BtnVerifyOtp"
@@ -141,6 +123,8 @@
                 android:layout_height="wrap_content"
                 app:spinning_bar_width="4dp"
                 android:text="Verify OTP"
+                android:backgroundTint="@color/colorPrimary"
+                android:textColor="@color/white"
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center"
                 app:spinning_bar_color="#FFF"

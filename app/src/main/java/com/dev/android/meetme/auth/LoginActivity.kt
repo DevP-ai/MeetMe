@@ -114,8 +114,8 @@ class LoginActivity : AppCompatActivity() {
                 sendButton.revertAnimation()
                 if(it.isSuccessful){
                     checkUserExist(binding.userNumber.text.toString())
-                    startActivity(Intent(this,MainActivity::class.java))
-                    finish()
+//                    startActivity(Intent(this,MainActivity::class.java))
+//                    finish()
                  }else{
                      Toast.makeText(this,it.exception?.message,Toast.LENGTH_SHORT).show()
                 }
