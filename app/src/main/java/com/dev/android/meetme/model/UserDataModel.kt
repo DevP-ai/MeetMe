@@ -1,6 +1,7 @@
 package com.dev.android.meetme.model
 
 data class UserDataModel(
+    var number:String?="",
     var name:String?="",
     var email:String?="",
     var city:String?="",
