@@ -78,27 +78,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:spinning_bar_width="4dp"
-                android:text="Send OTP"
+                android:text="@string/send_otp"
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center"
                 app:spinning_bar_color="#FFF"
                 app:spinning_bar_padding="6dp" />
 
-
-<!--            <andreasagap.loadingbutton.ButtonLoading-->
-<!--                android:id="@+id/SendOtpBtn"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="48dp"-->
-<!--                app:BL_backgroundColor="#9c9b9999"-->
-<!--                app:BL_backgroundDisableColor="#00AFEF"-->
-<!--                app:BL_circleColor="#00AFEF"-->
-<!--                app:BL_circleColorSecond="#8000AFEF"-->
-<!--                app:BL_enable="true"-->
-<!--                app:BL_stateShow="normal"-->
-<!--                app:BL_text="Login"-->
-<!--                app:BL_textColor="#ffffff"-->
-<!--                app:BL_textDisableColor="#000000"-->
-<!--                app:BL_textSize="16sp"/>-->
 
         </LinearLayout>
 
