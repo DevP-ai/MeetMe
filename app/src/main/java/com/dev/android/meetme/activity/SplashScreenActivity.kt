@@ -25,7 +25,7 @@ class SplashScreenActivity : AppCompatActivity() {
              else
                  startActivity(Intent(this@SplashScreenActivity, MainActivity::class.java))
             finish()
-        },3000)
+        },1000)
 
     }
 }

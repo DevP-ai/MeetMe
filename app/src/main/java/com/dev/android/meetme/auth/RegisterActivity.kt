@@ -1,24 +1,30 @@
 package com.dev.android.meetme.auth
 
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import com.dev.android.meetme.MainActivity
 import com.dev.android.meetme.R
 import com.dev.android.meetme.databinding.ActivityRegisterBinding
+import com.dev.android.meetme.model.UserDataModel
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var databaseReference: DatabaseReference
 
-    private var imageUri:Uri?=null
+    private var imageUrl:Uri?=null
 
     private val selectImage=registerForActivityResult(ActivityResultContracts.GetContent()){
-         imageUri=it
+         imageUrl=it
 
-        binding.userProfile.setImageURI(imageUri)
+        binding.userProfile.setImageURI(imageUrl)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,9 +58,51 @@ class RegisterActivity : AppCompatActivity() {
             binding.userCity.error="City required"
         }else if(!binding.termsAndCondition.isChecked){
             binding.termsAndCondition.error="Please check terms and Condition"
-        }else if(imageUri==null){
+        }else if(imageUrl==null){
             Toast.makeText(this,"Please upload your profile",Toast.LENGTH_SHORT).show()
+        }else{
+            uploadImage()
         }
+    }
+
+    private fun uploadImage() {
+        val storageRef=FirebaseStorage.getInstance().getReference("Profile")
+            .child(FirebaseAuth.getInstance().currentUser!!.phoneNumber.toString())
+            .child("profile.jpg")
+
+        storageRef.putFile(imageUrl!!)
+            .addOnSuccessListener {
+                storageRef.downloadUrl.addOnSuccessListener {
+                    storeData(imageUrl!!)
+                }.addOnFailureListener {
+                    Toast.makeText(this,it.message,Toast.LENGTH_SHORT).show()
+                }
+            }.addOnFailureListener {
+                Toast.makeText(this,it.message,Toast.LENGTH_SHORT).show()
+            }
+
+    }
+
+    private fun storeData(imageUrl: Uri) {
+        val data=UserDataModel(
+            name=binding.userName.text.toString(),
+            email=binding.userEmail.text.toString(),
+            city=binding.userCity.text.toString(),
+            image = imageUrl.toString()
+        )
+
+        FirebaseDatabase.getInstance().getReference("Users")
+            .child(FirebaseAuth.getInstance().currentUser!!.phoneNumber.toString())
+            .setValue(data)
+            .addOnCompleteListener { task->
+                if(task.isSuccessful){
+                    startActivity(Intent(this,MainActivity::class.java))
+                    finish()
+                    Toast.makeText(this,"Save Data Successfully",Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(this,task.exception!!.message,Toast.LENGTH_SHORT).show()
+                }
+            }
     }
 }
 
