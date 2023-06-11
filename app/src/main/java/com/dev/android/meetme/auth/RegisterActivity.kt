@@ -10,14 +10,15 @@ import com.dev.android.meetme.MainActivity
 import com.dev.android.meetme.R
 import com.dev.android.meetme.databinding.ActivityRegisterBinding
 import com.dev.android.meetme.model.UserDataModel
+import com.github.leandroborgesferreira.loadingbutton.customViews.CircularProgressButton
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
-    private lateinit var databaseReference: DatabaseReference
+
+    private lateinit var btnDialog:CircularProgressButton
 
     private var imageUrl:Uri?=null
 
@@ -34,6 +35,9 @@ class RegisterActivity : AppCompatActivity() {
 
         supportActionBar!!.hide()
 
+        btnDialog=findViewById(R.id.RegisterBtn)
+
+
         //Get Image from user
         binding.userProfile.setOnClickListener {
             selectImage.launch("image/*")
@@ -44,12 +48,12 @@ class RegisterActivity : AppCompatActivity() {
             val name=binding.userName.text.toString()
             val email=binding.userEmail.text.toString()
             val city=binding.userCity.text.toString()
-
-            ValidateUser(name,email,city)
+            validateUser(name,email,city)
+            btnDialog.startAnimation()
         }
     }
 
-    private fun ValidateUser(name: String, email: String, city: String) {
+    private fun validateUser(name: String, email: String, city: String) {
         if(name.isBlank()){
             binding.userName.error="Name required"
         }else if(email.isBlank()){
@@ -96,10 +100,12 @@ class RegisterActivity : AppCompatActivity() {
             .setValue(data)
             .addOnCompleteListener { task->
                 if(task.isSuccessful){
+                    btnDialog.revertAnimation()
                     startActivity(Intent(this,MainActivity::class.java))
                     finish()
                     Toast.makeText(this,"Save Data Successfully",Toast.LENGTH_SHORT).show()
                 }else{
+                    btnDialog.revertAnimation()
                     Toast.makeText(this,task.exception!!.message,Toast.LENGTH_SHORT).show()
                 }
             }
