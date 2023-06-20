@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import androidx.core.os.HandlerCompat.postDelayed
-import com.dev.android.meetme.MainActivity
 import com.dev.android.meetme.R
 import com.dev.android.meetme.auth.LoginActivity
 import com.google.firebase.auth.FirebaseAuth

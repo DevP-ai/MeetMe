@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import com.dev.android.meetme.MainActivity
+import com.dev.android.meetme.activity.MainActivity
 import com.dev.android.meetme.R
 import com.dev.android.meetme.databinding.ActivityRegisterBinding
 import com.dev.android.meetme.model.UserDataModel
@@ -101,7 +101,7 @@ class RegisterActivity : AppCompatActivity() {
             .addOnCompleteListener { task->
                 if(task.isSuccessful){
                     btnDialog.revertAnimation()
-                    startActivity(Intent(this,MainActivity::class.java))
+                    startActivity(Intent(this, MainActivity::class.java))
                     finish()
                     Toast.makeText(this,"Save Data Successfully",Toast.LENGTH_SHORT).show()
                 }else{

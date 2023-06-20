@@ -1,19 +1,17 @@
 package com.dev.android.meetme.auth
 
-import andreasagap.loadingbutton.ButtonLoading
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Toast
-import com.dev.android.meetme.MainActivity
+import com.dev.android.meetme.activity.MainActivity
 import com.dev.android.meetme.R
 import com.dev.android.meetme.databinding.ActivityLoginBinding
 import com.github.leandroborgesferreira.loadingbutton.customViews.CircularProgressButton
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
@@ -127,7 +125,7 @@ class LoginActivity : AppCompatActivity() {
              .addValueEventListener(object:ValueEventListener{
                  override fun onDataChange(snapshot: DataSnapshot) {
                     if(snapshot.exists()){
-                        startActivity(Intent(this@LoginActivity,MainActivity::class.java))
+                        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                         finish()
                     }else{
                         startActivity(Intent(this@LoginActivity,RegisterActivity::class.java))
