@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-     <item android:id="@+id/homeFragment2"
+     <item android:id="@id/homeFragment2"
          android:title="Home"
          android:icon="@drawable/home"/>
 
-    <item android:id="@+id/mesageFragment"
+    <item android:id="@id/mesageFragment"
         android:title="Chat"
         android:icon="@drawable/message"/>
 
-    <item android:id="@+id/profileFragment2"
+    <item android:id="@id/profileFragment2"
         android:title="Profile"
         android:icon="@drawable/profile"/>
 </menu>
