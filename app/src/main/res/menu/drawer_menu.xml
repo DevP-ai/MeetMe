@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/fav"
+        android:title="Favorite"/>
+
+    <item android:id="@+id/rate"
+        android:title="Rate Us"/>
+
+    <item android:id="@+id/share"
+        android:title="Shape App"/>
+
+    <item android:id="@+id/terms"
+        android:title="Terms and Conditions"/>
+
+    <item android:id="@+id/pv"
+        android:title="Privacy Policy"/>
+
+    <item android:id="@+id/dev"
+        android:title="Developer"/>
+
+</menu>
