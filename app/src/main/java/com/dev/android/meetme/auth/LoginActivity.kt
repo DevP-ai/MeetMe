@@ -121,10 +121,12 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun checkUserExist(number: String) {
+        val user=FirebaseAuth.getInstance().currentUser
+
          FirebaseDatabase.getInstance().getReference("Users").child(number)
              .addValueEventListener(object:ValueEventListener{
                  override fun onDataChange(snapshot: DataSnapshot) {
-                    if(snapshot.exists()){
+                    if(user!=null){
                         startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                         finish()
                     }else{
