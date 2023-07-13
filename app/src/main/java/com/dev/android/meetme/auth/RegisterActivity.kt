@@ -70,14 +70,15 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun uploadImage() {
+
         val storageRef=FirebaseStorage.getInstance().getReference("Profile")
-            .child(FirebaseAuth.getInstance().currentUser!!.phoneNumber.toString())
+            .child(FirebaseAuth.getInstance().currentUser!!.uid)
             .child("profile.jpg")
 
         storageRef.putFile(imageUrl!!)
             .addOnSuccessListener {
-                storageRef.downloadUrl.addOnSuccessListener {
-                    storeData(imageUrl!!)
+                storageRef.downloadUrl.addOnSuccessListener { image->
+                    storeData(image)
                 }.addOnFailureListener {
                     Toast.makeText(this,it.message,Toast.LENGTH_SHORT).show()
                 }

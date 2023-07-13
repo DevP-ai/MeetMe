@@ -126,7 +126,7 @@ class LoginActivity : AppCompatActivity() {
          FirebaseDatabase.getInstance().getReference("Users").child(number)
              .addValueEventListener(object:ValueEventListener{
                  override fun onDataChange(snapshot: DataSnapshot) {
-                    if(user!=null){
+                    if(snapshot.exists()){
                         startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                         finish()
                     }else{
