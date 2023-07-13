@@ -29,10 +29,10 @@ class ProfileFragment : Fragment() {
         // Inflate the layout for this fragment
         binding=FragmentProfileBinding.inflate(layoutInflater)
 
-        binding.txtLogout.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            startActivity(Intent(requireContext(),LoginActivity::class.java))
-        }
+//        binding.txtLogout.setOnClickListener {
+//            FirebaseAuth.getInstance().signOut()
+//            startActivity(Intent(requireContext(),LoginActivity::class.java))
+//        }
         return binding.root
     }
 
