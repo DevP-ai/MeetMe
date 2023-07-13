@@ -79,7 +79,7 @@
             android:layout_marginBottom="12dp"
             android:text="TextView"
             android:textSize="16sp"
-            android:textColor="@color/white"
+            android:textColor="#0025F6"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -92,7 +92,7 @@
             android:text="TextView"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:textColor="@color/white"
+            android:textColor="#0127FD"
             app:layout_constraintBottom_toTopOf="@+id/StackEmail"
             app:layout_constraintStart_toStartOf="parent" />
 
